@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Course } from './entities/couse.entity';
 
 @Injectable()
@@ -22,7 +22,12 @@ findAll(){
 }
 
 findOne(id: string){
-   return this.courses.find((course) => course.id === Number(id));
+    const course = this.courses.find((course) => course.id === Number(id));
+
+    if(!course){
+        throw new HttpException(`Course by id: ${id} not found`, HttpStatus.NOT_FOUND);
+    }
+    return course;
 }
 
 create(createCourseDto: any){
