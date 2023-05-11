@@ -8,11 +8,13 @@ export class CoursesService {
         {
             id: 1,
             description: 'Fundamentos de NestJS',
+            name: 'Curso Básico',
             tags: ['node.js', 'nestjs', 'javascript', 'typescript'],
         },
         {
             id: 2,
             description: 'Fundamentos de Typescript',
+            name: 'curso básico',
             tags: ['node.js', 'nestjs', 'javascript', 'typescript'],
         }
     ];
